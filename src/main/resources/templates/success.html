@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>thymeleaf使用户demo</h1>
+    <div th:text="${key}"></div>
+
+    <div th:text="${title}"></div><!-- text是转义特殊字符，那么就不会按照原本的意思来，写的什么获得什么-->
+    <div th:utext="${title}"></div><!-- utext是不转义特殊字符，那么就是语句应该有的含义。-->
+
+    <h3 th:text="${user}" th:each="user:${users}">每次都是一个h3</h3><!--each写在那个标签内，这个标签就会被遍历这么多次-->
+    <div th:each="user:${users}">
+        <span th:text="${user}"></span>
+    </div>
+</body>
+</html>
